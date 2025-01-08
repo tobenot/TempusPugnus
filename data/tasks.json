@@ -1,0 +1,28 @@
+[
+    {
+        "id": "888d4f2c-f209-48c7-a739-681979c13264",
+        "task": "1",
+        "start_time": "2025-01-06 21:02:37",
+        "initial_deadline": "2025-01-06 21:17:36",
+        "current_deadline": "2025-01-06 21:17:36",
+        "adjustments": [],
+        "completion_time": "2025-01-06 21:02:47",
+        "summary": "1",
+        "status": "已完成",
+        "total_adjustments": 0,
+        "total_adjusted_time": 0
+    },
+    {
+        "id": "f58d952b-ea4a-412a-9755-fa159acf8d75",
+        "task": "1",
+        "start_time": "2025-01-06 22:20:17",
+        "initial_deadline": "2025-01-06 22:35:16",
+        "current_deadline": "2025-01-06 22:35:16",
+        "adjustments": [],
+        "completion_time": "",
+        "summary": "",
+        "status": "进行中",
+        "total_adjustments": 0,
+        "total_adjusted_time": 0
+    }
+]
