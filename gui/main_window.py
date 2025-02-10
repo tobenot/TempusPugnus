@@ -207,14 +207,28 @@ class TimeFistGUI(QMainWindow):
                 self.handle_timeout()
 
     def handle_timeout(self):
-        response = QMessageBox.question(
-            self, "任务超时", 
-            "任务已经超时，是否调整时限？", 
-            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
-        )
-        if response == QMessageBox.StandardButton.Yes:
+        # 使用 QMessageBox.StandardButton 创建三个按钮选项
+        adjust_btn = QMessageBox.StandardButton.Yes
+        complete_btn = QMessageBox.StandardButton.Apply
+        timeout_btn = QMessageBox.StandardButton.No
+
+        msg_box = QMessageBox(self)
+        msg_box.setWindowTitle("任务超时")
+        msg_box.setText("任务已经超时，请选择操作：")
+        msg_box.setStandardButtons(adjust_btn | complete_btn | timeout_btn)
+        
+        # 自定义按钮文本
+        msg_box.button(adjust_btn).setText("调整时限")
+        msg_box.button(complete_btn).setText("标记完成")
+        msg_box.button(timeout_btn).setText("标记超时")
+
+        response = msg_box.exec()
+
+        if response == adjust_btn:
             self.adjust_task_time()
-        else:
+        elif response == complete_btn:
+            self.complete_task()
+        else:  # timeout_btn
             self.task_manager.update_task_status(self.current_task['id'], "已超时")
             self.reset_task_ui()
             QMessageBox.information(self, "提示", "任务已标记为超时")
